@@ -21,18 +21,32 @@ round-trip this plugin removes.
 
 ## Install
 
+From npm (preferred once published):
+
+```bash
+omp plugin install omp-diff
+```
+
+or by hand for a local checkout:
+
 ```bash
 omp plugin link /path/to/omp-diff
 ```
 
-or for a single local session:
+to try it without installing:
 
 ```bash
 omp -e /path/to/omp-diff/src/index.ts
 ```
 
-Then restart the session (extension modules are not hot-reloaded) and run
+Restart the session afterwards — omp does not hot-reload extension modules, so a
+newly linked or installed package is only picked up on the next launch. Then run
 `/diff <question>`.
+
+## Requirements
+
+- [omp](https://github.com/dukeofmclean/omp) or pi, with Bun — extension modules
+  are imported by Bun, so `.ts` sources ship as-is and are not precompiled.
 
 ## What gets captured
 
@@ -57,6 +71,14 @@ the diff cannot show.
   shell metacharacters are never interpreted.
 - **Failure is cheap** — not a repository, no changes, or a failed `git diff`
   produces a status notice and no model call.
+
+## Known limits
+
+- **Interactive only.** `omp -p` (headless/print mode) does not render the
+  answer — the injected prompt races process disposal in that mode. Works in the
+  TUI. Scripting use needs a headless path omp does not currently support.
+- **Restart after install** — extension modules are imported at startup.
+- **Requires Bun** — omp imports the `.ts` entry point directly.
 
 ## Development
 
