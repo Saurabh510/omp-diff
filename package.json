@@ -25,6 +25,15 @@
     "code-review"
   ],
   "license": "MIT",
+  "author": "saurabh15987",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Saurabh510/omp-diff.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Saurabh510/omp-diff/issues"
+  },
+  "homepage": "https://github.com/Saurabh510/omp-diff#readme",
   "engines": {
     "bun": ">=1.0.0"
   },
