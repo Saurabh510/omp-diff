@@ -1,0 +1,45 @@
+{
+  "name": "omp-diff",
+  "version": "1.0.0",
+  "description": "Ask a custom question with the active git diff injected as context — no terminal round-trip.",
+  "type": "module",
+  "main": "src/index.ts",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "files": [
+    "src",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "test": "bun test",
+    "check": "tsc --noEmit"
+  },
+  "keywords": [
+    "omp",
+    "oh-my-pi",
+    "extension",
+    "git",
+    "diff",
+    "code-review"
+  ],
+  "license": "MIT",
+  "engines": {
+    "bun": ">=1.0.0"
+  },
+  "devDependencies": {
+    "@types/bun": "latest",
+    "typescript": "latest"
+  },
+  "omp": {
+    "extensions": [
+      "./src/index.ts"
+    ]
+  },
+  "pi": {
+    "extensions": [
+      "./src/index.ts"
+    ]
+  }
+}
